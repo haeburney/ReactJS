@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<body>
+    <div id="root"></div>
+</body>
+<script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+<script  type="text/babel">
+    const root = document.getElementById("root");
+    
+    // () => 쓰면 함수로 바뀌게 해주는 것. 이건 arrow function 이라고 부른다.
+    const Title = () => (
+        <h3 id="title" onMouseEnter={() => console.log("mouse enter")}>
+            Hello I'm a span
+        </h3>
+    );
+
+    const Button = () => (
+        <button style={{
+        backgroudColor: "tomato",
+    }} onClick={() => console.log("im clicked")}>
+    Click me</button>);
+
+    const Container = () =>
+        <div>
+            <Title /> 
+            <Button /> 
+        </div>
+    ReactDOM.render(<Container />, root);
+</script>
+</html>
