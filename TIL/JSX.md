@@ -47,3 +47,55 @@ https://babeljs.io/
 </html>
 ```
 <br><br><br>
+
+## JSX part Two
+
+```
+<!DOCTYPE html>
+<html lang="ko">
+<body>
+    <div id="root"></div>
+</body>
+<script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel">
+    const root = document.getElementById("root");
+    const Title = () => (<h3 id="title" 
+        onMouseEnter = {() => console.log("mouse enter")}> 
+        Hello I'm a title</h3>);
+
+        // 위와 아래와 같은 소스.
+    /* function Title1(){
+            return (
+                <h3 id = "title" onMouseEnter = {() => console.log("mouse enter")}>
+            Hello I'm a title</h3>
+        );
+    } */
+
+    const Button = () => (<button style={{
+        backgroundColor: "skyblue",
+    }} onClick = { () => console.log("I'm clicked")}>Click ME</button>); 
+
+
+    const Container = () => (<div>
+        { /* arrow function 이라고 불린다 윗줄*/}
+
+            <Title />
+            <Button />
+        </div>)
+    //  두개를 reder하고 싶다면 위 같이 만들어서 배열을 두면 된다.
+
+    ReactDOM.render(<Container />, root);
+
+</script>
+
+</html>
+```
+
+<br><br>
+
+컴포넌트 요소의 첫글자는 대문자로 시작해야 한다. <br>
+만약 소문자면 React랑 JSX는 이게 HTML button 태그라고 생각할 것이다. <br>
+JSX는 어플리케이션을 여러 가지 작은 요소로 나누어 관리할 수 있게 해준다. <br>
+여러 요소로 잘게 쪼개서 만들어서 합쳐 주기만 하면 된다. <br>
