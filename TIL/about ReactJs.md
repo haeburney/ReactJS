@@ -83,4 +83,34 @@ React JS가 element를 생성하고 있다.<br>
 그래서 React JS는 유저에게 보여질 내용을 컨트롤 할 수 있다.<br>
 <br><br><br>
 
+## button 만들기
+
+```
+<!DOCTYPE html>
+<html lang="ko">
+<body>
+    <div id="root"></div>
+</body>
+<script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script>
+    const root = document.getElementById("root");
+    const h3 = React.createElement("h3", {
+        onMouseEnter: () => console.log("mouse enter"),
+    }, "Hi");
+    const btn = React.createElement("button", {
+        // property에 eventlistener를 등록할 수 있다.
+        onClick : () => console.log("I'm clicked"),
+    }, "Click me");
+    const container = React.createElement("div", null, [h3, btn]);
+    //  두개를 reder하고 싶다면 위 같이 만들어서 배열을 두면 된다.
+
+    ReactDOM.render(container, root);
+
+</script>
+
+</html>
+```
+<br><br><br>
 
