@@ -39,3 +39,43 @@ function App(){
     }
 ```
 
+## State Practice part One
+```
+   function App(){
+        const [minutes, setMinutes] = React.useState();
+        const onChange = (event) => {
+            setMinutes(event.target.value);
+        }
+        const reset = (event) => setMinutes(0);
+    
+
+        return (
+            <div>
+                <h1 className="title">Super Converter</h1>
+
+                <div>
+                    <label htmlFor="minutes">Minutes</label> &nbsp; 
+                    <input
+                        value={minutes}
+                        id="minutes"
+                        placeholder="Minutes"
+                        type="number"
+                        onChange={onChange} />
+                </div> <br />
+
+                <div>
+                    <label htmlFor="hours">hours</label> &nbsp; 
+                    <input
+                        value={Math.round(minutes / 60)}
+                        id="hours"
+                        placeholder="Hours"
+                        type="number" />
+                </div> <br />
+                <button onClick={reset}>Reset</button>
+            </div>
+        )
+    }
+
+    ReactDOM.render(<App />, root);
+```
+
