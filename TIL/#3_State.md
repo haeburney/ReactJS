@@ -13,3 +13,29 @@
         }
 ```
 
+## 시 -> 분 / 분 -> 시로 바꾸는거 만들기 
+```
+function App(){
+        const [minutes, setMinutes] = React.useState();
+        const onChange = (event) => {
+            setMinutes(event.target.value);
+        }
+
+        return (
+            <div>
+                <h1 className="title">Super Converter</h1>
+                <label htmlFor="minutes">Minutes</label>
+                <input
+                    value={minutes}
+                    id="minutes"
+                    placeholder="Minutes"
+                    type="number" 
+                    onChange={onChange} />
+                <h4>You want to convert {minutes}</h4>    
+                <label htmlFor="hours">hours</label>
+                <input id="hours" placeholder="Hours" type="number" />
+            </div>
+        )
+    }
+```
+
