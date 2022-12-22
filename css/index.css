@@ -1,0 +1,131 @@
+body {
+    background-color: #a2b6be;
+    color:#f6e6d2;
+    font-family: 'BRBA_B';
+}
+
+h1 {
+    text-align: center;
+}
+
+
+#selectP {
+    text-align: center;
+    margin-top: 30px;
+}
+
+#select {
+    width : 150px;
+    height: 35px;
+    padding : 5px 5px 5px 5px;
+    border-radius: 4px;
+    outline : 0 none;
+    background-color: #bbcbd2;
+    font-family: 'BRBA_B';
+}
+
+#select option {
+    padding: 3px 0px 3px 0px;
+    background-color: #f6e6d2;
+}
+
+
+.resetAndFlip {
+    text-align: center;
+}
+
+hr {
+    border: 0px;
+    border-top : 2px dashed #495f77;
+    background-color: #a2b6be;
+}
+
+#article{
+    text-align: center;
+}
+
+.please{
+    font-size: 1.5em;
+    margin-top: 20px;
+}
+
+.parentArticle{
+    width:70%;
+    display: flex;
+    margin: 10px auto;
+    margin-top: 50px;
+}
+
+.leftArticle{
+    border: 10x solid black;
+    flex:1;
+    width: 35%;
+    box-sizing: border-box;
+}
+
+.rightArticle{
+    border: 10x solid black;
+    flex:1;
+    width: 35%;
+    box-sizing: border-box;
+}
+
+.btn {
+    background-color: #fbc1ae;
+    position: relative;
+    border: none;
+    display: inline-block;
+    padding: 15px 30px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 15px;
+    font-family: 'BRBA_B';
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s;
+    
+
+}
+
+.btn:hover{
+    letter-spacing: 0.3em;
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+input {
+    font-size: 15px;
+    border: none;
+    border-bottom: solid #aaaaaa 1px;
+    position: relative;
+    background-color: #c8dae1;
+    z-index: 5;
+    border-radius: 3px;
+    width:30%;
+}
+
+input:disabled {
+    background-color: #c6c6c6;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button{
+    appearance: none;
+}
+
+label{
+    font-size: 20px;
+    margin-right: 3%;
+}
+
+.resetAndFlip{
+    margin-top: 100px;
+}
+
+
+@font-face {
+    font-family: 'BRBA_B';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.2/BRBA_B.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}

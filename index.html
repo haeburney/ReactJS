@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+<script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+<script type="text/babel">
+    const root = document.getElementById("root");
+
+    function KmToMiles(){
+        const [distance, setDistance] = React.useState(0);
+        const [flip, setFlip] = React.useState(0);
+
+        function onChange() {
+            setDistance(event.target.value);
+        }
+
+        function reset(){
+            setDistance(0);
+        }
+
+        function flipped(){
+            setFlip((current) => !current)
+            reset();
+        }
+
+        return(
+            <div>
+                <div className="parentArticle">
+                    <div className="leftArticle">
+                        <label htmlFor="km">KM</label>
+                        <input
+                            value={flip ? (distance * 1.609344).toFixed(2) : distance}
+                            id="km"
+                            type="number"
+                            disabled={flip ? true : false}
+                            onChange={onChange}
+                            className="input"
+                            placeholder="km"
+                        />
+                    </div>
+
+                    <div className="rightArticle">
+                        <label htmlFor="mile">MILE</label>
+                        <input
+                            value={flip ? distance : (distance * 0.621371).toFixed(2)}
+                            id="mile"
+                            type="number"
+                            disabled={flip ? false : true}
+                            onChange={onChange}
+                            className="input"
+                            placeholder="mile"
+                        />
+                    </div>
+                </div>
+                
+
+                <div className="resetAndFlip">
+                    <button className="btn" onClick={reset}>reset</button>
+                    <button className="btn" onClick={flipped}>flip</button>
+                </div>
+            </div>
+
+        );
+    }
+
+    function MinutesToHours() {
+        const [time, setTime] = React.useState(0);
+        const [flipped, setFlipped] = React.useState(false);
+
+        const onChange = (event) => {
+            setTime(event.target.value);
+        };
+
+        const reset = () => { // 여기 event 왜 써야하는거지?
+            setTime(0);
+        }
+
+        const onFlip = (event) => {
+            setFlipped((current) => !current );
+            reset();
+        }
+
+        return (
+            <div>
+                <div className="parentArticle">
+                    <div className="leftArticle">
+                        <label htmlFor="minutes">Minutes</label>
+                        <input
+                            value={flipped ? time * 60 : time}
+                            type="number"
+                            placeholder="Minutes"
+                            id="minutes"
+                            onChange={onChange}
+                            disabled={flipped ? true : false}
+                            className="input"
+                        />
+                    </div>
+                    <div className="rightArticle">
+                        <label htmlFor="hours">Hours</label>
+                        <input
+                            value={flipped ? time : Math.round(time / 60)}
+                            type="number"
+                            placeholder="Hours"
+                            id="hours"
+                            onChange={onChange}
+                            disabled={flipped ? false : true}
+                            className="input"
+                        />
+                    </div>
+                
+                </div>
+               
+
+                <div className="resetAndFlip">
+                    <button className="btn" onClick={reset}>Reset</button>
+                    &nbsp;
+                    <button className="btn" onClick={onFlip}>flip</button>
+                </div>
+            </div>
+        );
+    }
+
+    function App(){
+        const [index, setIndex] = React.useState("default");
+        const onSelect = () => {
+            setIndex(event.target.value);
+        };
+        return(
+            <div>
+                <h1>Super Converter</h1>
+                <div id="selectP">
+                    <select defaultValue="default" onChange={onSelect} id="select">
+                        <option value="default" disabled>Select Your Units</option>
+                        <option value="0">Minutes & Hours</option>
+                        <option value="1">Km & Miles</option>
+                    </select>
+
+                </div>    
+
+                <hr />
+
+                <div id="article">
+                    <div className="please">
+                        {index === "default" ? "Please Select Your Units" : null }
+                    </div>
+        
+                     {index === "0" ? <MinutesToHours /> : null }
+                    {index === "1" ? <KmToMiles /> : null }
+                </div>
+                
+            </div>
+
+        );
+    }
+
+    ReactDOM.render(<App />, root);
+</script>
+
+</html>
